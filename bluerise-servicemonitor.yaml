@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: bluerise-monitor
+  namespace: monitoring
+  labels:
+    release: monitors  # Must match the Helm release label
+spec:
+  selector:
+    matchLabels:
+      app: bluerise
+  namespaceSelector:
+    matchNames:
+      - default
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s

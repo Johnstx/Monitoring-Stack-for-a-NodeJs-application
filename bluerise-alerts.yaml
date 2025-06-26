@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: bluerise-alerts
+  namespace: monitoring
+  labels:
+    release: prometheus-stack
+spec:
+  groups:
+    - name: bluerise.rules
+      rules:
+        - alert: HighWeatherCheckRate
+          expr: rate(weather_checks_total[1m]) > 5
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: High weather check rate
+            description: "Bluerise is checking weather more than 5 times per minute."
