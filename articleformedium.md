@@ -1,6 +1,6 @@
 ### Setting up a monitoring stack for Bluerise app (NodeJs)
 
-If you have an aplicaton that is exposed to traffic, youll want to monitor its stability and health. 
+If you have an aplicaton that is exposed to traffic, you'll want to monitor its stability and health. 
 This documentation highlights the use of prometheus-stack (Prometheus, Grafana and Alertmanager) for mmonitoring and observability of an app and/or infrastructure.
 
 I will *simplify* the use of a monitoring stack using single node kubernetes cluster.
